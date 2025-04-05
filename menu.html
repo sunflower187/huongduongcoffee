@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - Hướng Dương Coffee</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8e7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f6d365;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #4a3c1a;
+    }
+    .menu {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .menu h2 {
+      text-align: center;
+      color: #5b3e00;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .product {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #333;
+    }
+    .product p {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>☕ Menu Hướng Dương Coffee</h1>
+  </header>
+  <div class="menu">
+    <h2>Đồ uống & Bánh ngọt</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2020/07/06/05/30/vietnamese-coffee-5377752_960_720.jpg" alt="Cà phê sữa">
+        <h3>Cà phê sữa - 28.000đ</h3>
+        <p>Phin truyền thống Việt Nam, đậm vị và béo nhẹ.</p>
+      </div>
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/04/17/cup-1869592_960_720.jpg" alt="Cà phê đen">
+        <h3>Cà phê đen - 25.000đ</h3>
+        <p>Cà phê phin nguyên chất, đậm đà và tỉnh táo.</p>
+      </div>
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2021/12/11/15/12/coffee-6863226_960_720.jpg" alt="Cold Brew">
+        <h3>Cold Brew - 32.000đ</h3>
+        <p>Ủ lạnh nhẹ nhàng, hương vị dịu và mát.</p>
+      </div>
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2020/08/03/06/03/croissant-5459561_960_720.jpg" alt="Croissant truyền thống">
+        <h3>Croissant truyền thống - 30.000đ</h3>
+        <p>Bánh bơ giòn tan, lớp vỏ mỏng xếp tầng thơm ngậy.</p>
+      </div>
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/16/16/croissant-1837498_960_720.jpg" alt="Croissant phô mai">
+        <h3>Croissant phô mai - 35.000đ</h3>
+        <p>Nhân phô mai mềm mịn, quyện cùng lớp bánh giòn thơm.</p>
+      </div>
+      <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/bakery-2293726_960_720.jpg" alt="Croissant chocolate">
+        <h3>Croissant chocolate - 38.000đ</h3>
+        <p>Bánh croissant nhân chocolate đậm đà, ngọt ngào.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
