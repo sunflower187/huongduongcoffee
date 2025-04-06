@@ -101,6 +101,33 @@
       var newVal = parseInt(qty.value) + change;
       if (newVal >= 1) qty.value = newVal;
     }
-  </script>
+  <script>
+  const basePrice = 35000; // 👉 giá gốc của món (thay đổi theo từng món)
+  const priceElement = document.getElementById("price");
+
+  const sizeRadios = document.getElementsByName("size");
+
+  function updatePrice() {
+    let selectedSize = "S";
+    for (const radio of sizeRadios) {
+      if (radio.checked) {
+        selectedSize = radio.value;
+        break;
+      }
+    }
+
+    let finalPrice = basePrice;
+    if (selectedSize === "M") finalPrice += 5000;
+    else if (selectedSize === "L") finalPrice += 8000;
+
+    priceElement.textContent = finalPrice.toLocaleString("vi-VN") + "đ";
+  }
+
+  for (const radio of sizeRadios) {
+    radio.addEventListener("change", updatePrice);
+  }
+
+  updatePrice(); // Gọi lúc đầu để hiển thị đúng giá theo size mặc định
+</script>
 </body>
 </html>
