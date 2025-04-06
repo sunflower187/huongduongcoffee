@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - Hướng Dương Coffee</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8e7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f6d365;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    header img {
+      height: 90px;
+      position: absolute;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    header h1 {
+      margin: 0;
+      color: #4a3c1a;
+      font-size: 32px;
+    }
+    .menu {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .product {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #333;
+    }
+    .product p {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="logo.png" alt="Logo"></a>
+    <h1>MENU</h1>
+  </header>
+  <div class="menu">
+    <div class="product-grid">
+      <a href="product-caphesua.html" class="product">
+        <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/cf_sua.jpg?raw=true" alt="Cà phê sữa">
+        <h3>Cà phê sữa - 28.000đ</h3>
+        <p>Phin truyền thống Việt Nam, đậm vị và béo nhẹ.</p>
+      </a>
+      <a href="product-caphen.html" class="product">
+        <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/cf_den.jpg?raw=true" alt="Cà phê đen">
+        <h3>Cà phê đen - 25.000đ</h3>
+        <p>Cà phê phin nguyên chất, đậm đà và tỉnh táo.</p>
+      </a>
+      <a href="product-coldbrew.html" class="product">
+        <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/coldbrew.jpg?raw=true" alt="Cold Brew">
+        <h3>Cold Brew - 32.000đ</h3>
+        <p>Ủ lạnh nhẹ nhàng, hương vị dịu và mát.</p>
+      </a>
+      <a href="product-croissant.html" class="product">
+        <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/croissant.jpg?raw=true" alt="Croissant truyền thống">
+        <h3>Croissant truyền thống - 30.000đ</h3>
+        <p>Bánh bơ giòn tan, lớp vỏ mỏng xếp tầng thơm ngậy.</p>
+      </a>
+      <a href="product-croissant-phomai.html" class="product">
+        <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/croissant_phomia.jpg?raw=true" alt="Croissant phô mai">
+        <h3>Croissant phô mai - 35.000đ</h3>
+        <p>Nhân phô mai mềm mịn, quyện cùng lớp bánh giòn thơm.</p>
+      </a>
+      <a href="product-croissant-choco.html" class="product">
+        <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/croissant_choco.jpg?raw=true" alt="Croissant chocolate">
+        <h3>Croissant chocolate - 38.000đ</h3>
+        <p>Bánh croissant nhân chocolate đậm đà, ngọt ngào.</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
