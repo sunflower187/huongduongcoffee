@@ -102,7 +102,7 @@
       if (newVal >= 1) qty.value = newVal;
     }
   <script>
-  const basePrice = 35000; // 👉 giá gốc của món (thay đổi theo từng món)
+  const basePrice = 25000;
   const priceElement = document.getElementById("price");
 
   const sizeRadios = document.getElementsByName("size");
@@ -127,7 +127,7 @@
     radio.addEventListener("change", updatePrice);
   }
 
-  updatePrice(); // Gọi lúc đầu để hiển thị đúng giá theo size mặc định
+  updatePrice();
 </script>
 </body>
 </html>
