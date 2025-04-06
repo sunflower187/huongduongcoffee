@@ -102,12 +102,14 @@
       if (newVal >= 1) qty.value = newVal;
     }
   <script>
-  const basePrice = 25000;
+  const basePrice = 25000; 
   const priceElement = document.getElementById("price");
-
   const sizeRadios = document.getElementsByName("size");
+  const quantityInput = document.getElementById("quantity");
+  const minusBtn = document.getElementById("minus");
+  const plusBtn = document.getElementById("plus");
 
-  function updatePrice() {
+  function getSizeExtraPrice() {
     let selectedSize = "S";
     for (const radio of sizeRadios) {
       if (radio.checked) {
@@ -116,17 +118,31 @@
       }
     }
 
-    let finalPrice = basePrice;
-    if (selectedSize === "M") finalPrice += 5000;
-    else if (selectedSize === "L") finalPrice += 8000;
-
-    priceElement.textContent = finalPrice.toLocaleString("vi-VN") + "đ";
+    if (selectedSize === "M") return 5000;
+    if (selectedSize === "L") return 8000;
+    return 0;
   }
 
+  function updatePrice() {
+    const quantity = parseInt(quantityInput.value);
+    const totalPrice = (basePrice + getSizeExtraPrice()) * quantity;
+    priceElement.textContent = totalPrice.toLocaleString("vi-VN") + "đ";
+  }
   for (const radio of sizeRadios) {
     radio.addEventListener("change", updatePrice);
   }
+  plusBtn.addEventListener("click", () => {
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+    updatePrice();
+  });
 
+  minusBtn.addEventListener("click", () => {
+    let qty = parseInt(quantityInput.value);
+    if (qty > 1) {
+      quantityInput.value = qty - 1;
+      updatePrice();
+    }
+  });
   updatePrice();
 </script>
 </body>
