@@ -25,6 +25,25 @@
       margin: 0 auto;
       color: #4a3c1a;
     }
+     .back-wrapper {
+      padding-left: 30px;
+      margin-top: 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #4a3c1a;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      transform-origin: left;
+    }
+
+    .back-link:hover {
+      color: #a47148;
+      transform: scale(1.05);
+    }
     .container {
       display: flex;
       padding: 40px;
@@ -71,9 +90,16 @@
 </head>
 <body>
   <header>
-    <div style="display: flex; flex-direction: column;"><a href="index.html"><img src="logo.png" alt="Logo"></a><a href="menu.html" style="margin-top: 10px; color: #4a3c1a; text-align: center;">← Quay lại Menu</a></div>
+    <a href="index.html" style="position: absolute; left: 30px;">
+      <img src="logo.png" alt="Logo">
+    </a>
     <h1>Đặt hàng</h1>
   </header>
+
+  <div class="back-wrapper">
+    <a href="menu.html" class="back-link">← Quay lại</a>
+  </div>
+
   <div class="container">
     <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/croissant_choco.jpg?raw=true" alt="Croissant chocolate">
     <div class="details">
