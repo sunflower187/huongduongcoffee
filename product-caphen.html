@@ -23,17 +23,24 @@
       height: 80px;
       margin-left: 30px;
     }
-    back-link {
-      display: inline-block;
-      color: #4a3c1a;
-      font-weight: bold;
-      font-size: 18px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      transform: scale(1.05);
-    }
+    .back-wrapper {
+  padding-left: 30px;
+  margin-top: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #4a3c1a;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  transform-origin: left;
+
 .back-link:hover {
   color: #a47148;
+  transform: scale(1.05);
+}
     header h1 {
       margin: 0 auto;
       color: #4a3c1a;
@@ -90,6 +97,7 @@
   <h1>Đặt hàng</h1>
     
   </header>
+  <div class="back-wrapper">
   <a href="menu.html" class="back-link";
     >← Quay lại</a></div>
   <div class="container">
