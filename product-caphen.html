@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cà phê đen - Hướng Dương Coffee</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8e7;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f6d365;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    header img {
+      height: 80px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #4a3c1a;
+    }
+
+    .back-wrapper {
+      padding-left: 30px;
+      margin-top: 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #4a3c1a;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      transform-origin: left;
+    }
+
+    .back-link:hover {
+      color: #a47148;
+      transform: scale(1.05);
+    }
+
+    .container {
+      display: flex;
+      padding: 40px;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container img {
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    .details {
+      max-width: 400px;
+    }
+
+    .details h2 {
+      margin-top: 0;
+      color: #4a3c1a;
+    }
+
+    .details p {
+      margin: 5px 0;
+    }
+
+    .sizes label {
+      margin-right: 15px;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .quantity button {
+      padding: 5px 10px;
+      margin: 0 5px;
+    }
+
+    .order {
+      background: #a47148;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" style="position: absolute; left: 30px;">
+      <img src="logo.png" alt="Logo">
+    </a>
+    <h1>Đặt hàng</h1>
+  </header>
+
+  <div class="back-wrapper">
+    <a href="menu.html" class="back-link">← Quay lại</a>
+  </div>
+
+  <div class="container">
+    <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/cf_den.jpg?raw=true" alt="Cà phê đen">
+    <div class="details">
+      <h2>Cà phê đen</h2>
+      <p><strong>Giá:</strong> <span id="price"> 25.000đ</span></p>
+      <p>Cà phê phin nguyên chất, đậm đà và tỉnh táo.</p>
+      <div class="sizes">
+        <p><strong>Size:</strong></p>
+        <label><input type="radio" name="size" value="S" checked> S</label>
+        <label><input type="radio" name="size" value="M"> M</label>
+        <label><input type="radio" name="size" value="L"> L</label>
+      </div>
+      <div class="quantity">
+        <label>Số lượng:</label>
+        <button onclick="changeQty(-1)">-</button>
+        <input type="number" id="qty" value="1" min="1" style="width: 40px; text-align: center;">
+        <button onclick="changeQty(1)">+</button>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button class="order">Thêm vào giỏ hàng</button>
+        <button class="order">Đặt hàng</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const basePrice = 25000;
+    const sizePrices = {
+      S: 0,
+      M: 3000,
+      L: 6000
+    };
+
+    function changeQty(change) {
+      var qty = document.getElementById('qty');
+      var newVal = parseInt(qty.value) + change;
+      if (newVal >= 1) qty.value = newVal;
+      updatePrice();
+    }
+
+    function updatePrice() {
+      var size = document.querySelector('input[name="size"]:checked').value;
+      var qty = parseInt(document.getElementById('qty').value);
+      var total = (basePrice + sizePrices[size]) * qty;
+      document.getElementById('price').innerText = total.toLocaleString('vi-VN') + "đ";
+    }
+
+    document.querySelectorAll('input[name="size"]').forEach(el => {
+      el.addEventListener('change', updatePrice);
+    });
+
+    document.getElementById('qty').addEventListener('input', updatePrice);
+    window.onload = updatePrice;
+  </script>
+</body>
+</html>
