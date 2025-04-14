@@ -167,42 +167,5 @@
       <div style="display: flex; gap: 10px;"><button class="order">Thêm vào giỏ hàng</button><button class="order">Đặt hàng</button></div>
     </div>
   </div>
-  <script>
-    function changeQty(change) {
-      var qty = document.getElementById('qty');
-      var newVal = parseInt(qty.value) + change;
-      if (newVal >= 1) qty.value = newVal;
-    }
-  </script>
-
-  <script>
-    const basePrice = 35000;
-    const sizePrices = {
-      S: 0,
-      M: 3000,
-      L: 6000
-    };
-
-    function changeQty(change) {
-      var qty = document.getElementById('qty');
-      var newVal = parseInt(qty.value) + change;
-      if (newVal >= 1) qty.value = newVal;
-      updatePrice();
-    }
-
-    function updatePrice() {
-      var size = document.querySelector('input[name="size"]:checked').value;
-      var qty = parseInt(document.getElementById('qty').value);
-      var total = (basePrice + sizePrices[size]) * qty;
-      document.getElementById('price').innerText = total.toLocaleString('vi-VN') + "đ";
-    }
-
-    document.querySelectorAll('input[name="size"]').forEach(el => {
-      el.addEventListener('change', updatePrice);
-    });
-
-    document.getElementById('qty').addEventListener('input', updatePrice);
-    window.onload = updatePrice;
-  </script>
 </body>
 </html>
