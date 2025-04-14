@@ -25,25 +25,6 @@
       margin: 0 auto;
       color: #4a3c1a;
     }
-     .back-wrapper {
-      padding-left: 30px;
-      margin-top: 20px;
-    }
-
-    .back-link {
-      display: inline-block;
-      color: #4a3c1a;
-      font-weight: bold;
-      font-size: 18px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      transform-origin: left;
-    }
-
-    .back-link:hover {
-      color: #a47148;
-      transform: scale(1.05);
-    }
     .container {
       display: flex;
       padding: 40px;
@@ -90,16 +71,9 @@
 </head>
 <body>
   <header>
-    <a href="index.html" style="position: absolute; left: 30px;">
-      <img src="logo.png" alt="Logo">
-    </a>
+    <div style="display: flex; flex-direction: column;"><a href="index.html"><img src="logo.png" alt="Logo"></a><a href="menu.html" style="margin-top: 10px; color: #4a3c1a; text-align: center;">← Quay lại Menu</a></div>
     <h1>Đặt hàng</h1>
   </header>
-
-  <div class="back-wrapper">
-    <a href="menu.html" class="back-link">← Quay lại</a>
-  </div>
-  
   <div class="container">
     <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/cf_sua.jpg?raw=true" alt="Cà phê sữa">
     <div class="details">
@@ -118,17 +92,9 @@
         <input type="number" id="qty" value="1" min="1" style="width: 40px; text-align: center;">
         <button onclick="changeQty(1)">+</button>
       </div>
-      <div style="display: flex; gap: 10px;"><button class="order">Thêm vào giỏ hàng</button><button class="order">Đặt hàng</button></div>
+      <div style="display: flex; gap: 10px;"><button class="order" onclick="addToCart()">Thêm vào giỏ hàng</button><button class="order">Đặt hàng</button></div>
     </div>
   </div>
-  <script>
-    function changeQty(change) {
-      var qty = document.getElementById('qty');
-      var newVal = parseInt(qty.value) + change;
-      if (newVal >= 1) qty.value = newVal;
-    }
-  </script>
-
   <script>
     const basePrice = 28000;
     const sizePrices = {
@@ -154,9 +120,25 @@
     document.querySelectorAll('input[name="size"]').forEach(el => {
       el.addEventListener('change', updatePrice);
     });
-
     document.getElementById('qty').addEventListener('input', updatePrice);
     window.onload = updatePrice;
+
+    function addToCart() {
+      var size = document.querySelector('input[name="size"]:checked').value;
+      var qty = parseInt(document.getElementById('qty').value);
+      var price = basePrice + sizePrices[size];
+      var name = `Cà phê sữa (${size})`;
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const index = cart.findIndex(item => item.name === name);
+      if (index >= 0) {
+        cart[index].quantity += qty;
+      } else {
+        cart.push({ name, price, quantity: qty });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + ' đã được thêm vào giỏ hàng!');
+    }
   </script>
 </body>
 </html>
