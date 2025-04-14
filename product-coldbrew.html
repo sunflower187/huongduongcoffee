@@ -68,8 +68,8 @@
       cursor: pointer;
     }
   </style>
-  <script>
-    const basePrice = 28000;
+   <script>
+    const basePrice = 32000;
     const sizePrices = {
       S: 0,
       M: 3000,
@@ -94,7 +94,7 @@
       const size = document.querySelector('input[name="size"]:checked').value;
       const qty = parseInt(document.getElementById('qty').value);
       const price = basePrice + sizePrices[size];
-      const name = `Cà phê sữa (${size})`;
+      const name = `Coldbrew (${size})`;
 
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       const index = cart.findIndex(item => item.name === name);
