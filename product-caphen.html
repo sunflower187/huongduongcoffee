@@ -161,7 +161,22 @@
       var total = (basePrice + sizePrices[size]) * qty;
       document.getElementById('price').innerText = total.toLocaleString('vi-VN') + "đ";
     }
+     function addToCart() {
+      const size = document.querySelector('input[name="size"]:checked').value;
+      const qty = parseInt(document.getElementById('qty').value);
+      const price = basePrice + sizePrices[size];
+      const name = `Cà phê đen (${size})`;
 
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const index = cart.findIndex(item => item.name === name);
+      if (index >= 0) {
+        cart[index].quantity += qty;
+      } else {
+        cart.push({ name, price, quantity: qty });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + ' đã được thêm vào giỏ hàng!');
+    }
     document.querySelectorAll('input[name="size"]').forEach(el => {
       el.addEventListener('change', updatePrice);
     });
