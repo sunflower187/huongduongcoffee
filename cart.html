@@ -1,38 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giỏ hàng</title>
   <style>
-    body { font-family: sans-serif; margin: 20px; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8e7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f6d365;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    header img {
+      height: 80px;
+      position: absolute;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    header h1 {
+      margin: 0;
+      color: #4a3c1a;
+      font-size: 32px;
+    }
+    .cart {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f6d365;
+      color: #4a3c1a;
+    }
+    td {
+      color: #333;
+    }
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #4a3c1a;
+    }
   </style>
 </head>
 <body>
-  <h1>Giỏ hàng của bạn</h1>
-  <table id="cart-table">
-    <thead>
-      <tr><th>Tên món</th><th>Giá</th><th>Số lượng</th><th>Tổng</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
+  <header>
+    <a href="index.html"><img src="logo.png" alt="Logo"></a>
+    <h1>Giỏ hàng</h1>
+  </header>
+  <div class="cart">
+    <table id="cart-table">
+      <thead>
+        <tr><th>Tên món</th><th>Giá</th><th>Số lượng</th><th>Tổng</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="total" id="total-price"></div>
+  </div>
   <script>
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const tbody = document.querySelector('#cart-table tbody');
+    const totalPriceEl = document.getElementById('total-price');
 
+    let total = 0;
     cart.forEach(item => {
       const row = document.createElement('tr');
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
       row.innerHTML = `
         <td>${item.name}</td>
         <td>${item.price.toLocaleString()}đ</td>
         <td>${item.quantity}</td>
-        <td>${(item.price * item.quantity).toLocaleString()}đ</td>
+        <td>${itemTotal.toLocaleString()}đ</td>
       `;
       tbody.appendChild(row);
     });
+    totalPriceEl.textContent = `Tổng cộng: ${total.toLocaleString()}đ`;
   </script>
 </body>
 </html>
