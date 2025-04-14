@@ -25,7 +25,7 @@
       margin: 0 auto;
       color: #4a3c1a;
     }
-    .back-wrapper {
+   .back-wrapper {
       padding-left: 30px;
       margin-top: 20px;
     }
@@ -44,7 +44,6 @@
       color: #a47148;
       transform: scale(1.05);
     }
-
     .container {
       display: flex;
       padding: 40px;
@@ -137,10 +136,16 @@
   </script>
 </head>
 <body>
- <header>
-    <div style="display: flex; flex-direction: column;"><a href="index.html"><img src="logo.png" alt="Logo"></a><a href="menu.html" style="margin-top: 10px; color: #4a3c1a; text-align: center;">← Quay lại Menu</a></div>
+  <header>
+    <a href="index.html" style="position: absolute; left: 30px;">
+      <img src="logo.png" alt="Logo">
+    </a>
     <h1>Đặt hàng</h1>
   </header>
+
+  <div class="back-wrapper">
+    <a href="menu.html" class="back-link">← Quay lại</a>
+  </div>
   <div class="container">
     <img src="https://github.com/sunflower187/huongduongcoffee/blob/main/cf_sua.jpg?raw=true" alt="Cà phê sữa">
     <div class="details">
